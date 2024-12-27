@@ -10,10 +10,10 @@ export async function GET(request: Request) {
   const id = searchParams.get('id')
 
   await dbConnect()
-  let products = []
-  let foundProduct  = await Product.findById(id)
-  products.push(foundProduct)
-  // let products  = await Product.find()
+  // let products = []
+  // let foundProduct  = await Product.findById(id)
+  // products.push(foundProduct)
+  let products  = await Product.find()
   return NextResponse.json(products)
 }
 
