@@ -25,6 +25,7 @@ async function loadProducts(){
   // let res = await fetch('http://localhost:3000/api/product')
   //let id = props.params.id
 
+  // let res = await fetch(process.env.API + '/api/product?id=' + id)
   let res = await fetch('http://localhost:3000/api/product?id=' + id)
   //let res = await fetch(process.env.API+ "/api/product")
   let resJson = await res.json()
