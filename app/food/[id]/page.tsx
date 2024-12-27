@@ -1,9 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import './App.css'
 
-function App(props:{params: {id: string}}) {
+function App({ params }: { params: Promise<{ id: string }> }) {
+
+const { id } = use(params);
 
 interface IProducts {
     name: string,
@@ -14,7 +16,6 @@ interface IProducts {
  
 const [products, setProducts] = useState<IProducts[]>([])
 
-
 useEffect(() => {
   loadProducts()
 }, [])
@@ -22,7 +23,7 @@ useEffect(() => {
 async function loadProducts(){
 
   // let res = await fetch('http://localhost:3000/api/product')
-  let id = props.params.id
+  //let id = props.params.id
 
   let res = await fetch('http://localhost:3000/api/product?id=' + id)
   //let res = await fetch(process.env.API+ "/api/product")
