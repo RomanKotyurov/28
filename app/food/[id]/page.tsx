@@ -2,6 +2,7 @@
 
 import { use, useEffect, useState } from "react";
 import './App.css'
+import { Console } from "console";
 
 function App({ params }: { params: Promise<{ id: string }> }) {
 
@@ -24,9 +25,10 @@ async function loadProducts(){
 
   // let res = await fetch('http://localhost:3000/api/product')
   //let id = props.params.id
-
-  // let res = await fetch(process.env.API + '/api/product?id=' + id)
-  let res = await fetch('http://localhost/api/product?id=' + id)
+  const API = process.env.API
+  console.log(API)
+  let res = await fetch(process.env.API + '/api/product?id=' + id)
+  // let res = await fetch('http://localhost/api/product?id=' + id)
   // let res = await fetch('http://localhost:3000/api/product?id=' + id)
   //let res = await fetch(process.env.API+ "/api/product")
   let resJson = await res.json()
