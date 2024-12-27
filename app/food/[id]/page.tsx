@@ -110,8 +110,8 @@ async function onChange(fieldName: 'name' | 'description' | 'image', value: stri
       
           <button
           onClick={async ()=>{
-            let res = await fetch('http://localhost:3000/api/product',
-            // let res = await fetch(process.env.REACT_APP_API_URL + '/api/product', 
+            //let res = await fetch('http://localhost:3000/api/product',
+            let res = await fetch(process.env.API + '/api/product', 
               {
                 method: 'POST',
                 headers: {
